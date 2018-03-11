@@ -1,4 +1,16 @@
-def findComplement(num):
-    print(bin(num))
+class Solution:
+    def findComplement(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        decimal = 0
+        out_bin = []
+        while num != 0:
+            out_bin.append(num % 2 ^ 1)
+            num //= 2
 
-findComplement(5)
+        for i in reversed(out_bin):
+            decimal = decimal * 2 + i
+
+        return decimal
